@@ -19,3 +19,4 @@ Diffend configuration value for shareable_id is invalid.
 Diffend configuration value for shareable_key is invalid.
 '''
 1. adding a .gitignore from github
+1. "worked around" `bundle install` problems by disabling diffend. 
