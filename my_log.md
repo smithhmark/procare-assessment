@@ -20,3 +20,14 @@ Diffend configuration value for shareable_key is invalid.
 '''
 1. adding a .gitignore from github
 1. "worked around" `bundle install` problems by disabling diffend. 
+1. under the assumption that since the targeted ruby version is not documented I have too new a ruby version, tried removing ALL version information from teh GEM file
+  - result: can't build...
+1. root of problem isolated to inability for my windows machine to build the necessary libary. 
+'''Extracting v2.3.0 into tmp/x86_64-w64-mingw32/ports/librdkafka/2.3.0... OK
+Running 'configure' for librdkafka 2.3.0... ERROR. Please review logs to see
+what happened:
+----- contents of
+'C:/Ruby32-x64/lib/ruby/gems/3.2.0/gems/karafka-rdkafka-0.15.1/ext/tmp/x86_64-w64-mingw32/ports/librdkafka/2.3.0/configure.log'
+-----
+mklove/modules/configure.base: line 2126: source: configure.self: file not found'''
+1. next step: reset everything. and try on my linux box
