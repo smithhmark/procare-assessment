@@ -6,8 +6,7 @@
 1. create this log
 1. began ruby install
 1. got ruby cmdln stuff working (restarted powershell)
-1. bundle install failed with
-```shell 
+1. bundle install failed with ```shell 
 Fetching gem metadata from https://rubygems.org/.
 Resolving dependencies...
 Installing diffend 0.2.54
@@ -22,8 +21,7 @@ Diffend configuration value for shareable_key is invalid.
 1. "worked around" `bundle install` problems by disabling diffend. 
 1. under the assumption that since the targeted ruby version is not documented I have too new a ruby version, tried removing ALL version information from teh GEM file
    - result: can't build...
-1. root of problem isolated to inability for my windows machine to build the necessary libary. 
-```shell
+1. root of problem isolated to inability for my windows machine to build the necessary libary. ```shell
 Extracting v2.3.0 into tmp/x86_64-w64-mingw32/ports/librdkafka/2.3.0... OK
 Running 'configure' for librdkafka 2.3.0... ERROR. Please review logs to see
 what happened:
