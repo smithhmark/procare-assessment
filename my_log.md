@@ -61,3 +61,6 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
   - sudo apt-get install libyaml-dev
   - sudo apt-get install libpq-dev
   - bundle install
+1. runing `bundle exec rspec spec` fails on 2 tests becuase of uninitialized constants... 
+1. finish setting up docker on this tiny toy laptop
+1. and try runing the bootstrap again.
