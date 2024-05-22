@@ -38,11 +38,49 @@ Given the option, I would prefer to be working with project stakeholders from ac
   * cost models (so we don't get financially surprized by a change in usage)
 
 Many of the above can be worked in parallel to more tactical changes like what I have done in this repository.
+### What I have delivered
+This repo contains a working, self-contained development deployment for this project. the bootstrap script now builds the entire thing, all the dependencies are documented (in the Gemfile, the Dockerfiles, and in the compose file), and `docker compose up` will run the entire application locally.
+
+## Thoughts on other options
+### "CI/CD"
+Automating a deployment of a containerized service is easy. just 
+* deliver:
+   * docker build
+   * docker tag
+   * docker login
+   * docker push
+* deploy, ie tell your execution environment to deploy the new image
+
+making an image delivery script is three steps:
+1. do it once by hand in the console
+2. dump recent shell history into a file
+3. clean that file up into a script
+
+The problem is that isn't **CI/CD**. that would require:
+* having real tests that run quickly
+* merging main
+* pushing to the test environment
+* having automated gates to deployment/delivery (go-no-go is a **critical** part of automated deployment)
+
+The interesting engineering around this is "what do we need to feel confident and how do we test for those things?" not, can we push some images around and trigger deployments.
+  
+### Scalability testing/improvements
+There is basically no point in load testing this application without having some idea of what the requirements are and where it will be running. As a science fair project we can easily setup a [locust](https://locust.io/) cluster and get beautiful graphs and metrics and identify the saturation point on a given deployment. But testing a random configuration to failure means nothing. 
+
+The key things we would use this type of testing for are:
+* pre-deployment validation that the system meets a requirement to pass a go-no-go test
+* capacity planning
+* design validiation
+all of those demand actual business requirements and targeted platforms and configurations. 
+
+### designing a "realtime" reporting system
+This particular suggestion is very doable in this context, at least as a white board exercise. For 1000rps this is fairly straightforward for toy problems:
+* reporting API enqueues events
+* run a worker process to consume events. the worker maintains an in memory representation of the report and serves if up if asked, or just stores it in something like Redis. Depending on the size of the report it might emit updated reports as its own event stream for interested subscribers.
+
+Interesting things happen though when we ask "how do we recover from a crash?", "how do we scale to many thousands of rps?" or even more fun, "how do we fail this thing over to another region?" and that is no longer a toy problem, even on a whiteboard.
 
 ## Summary of changes
-### This document
-...
-
 ### Logging
 First, I have kept a log from the very beginning of this task. That is in the file `./task_log_mhs.md`. This is actually a standard practice I use, although I wouldn't normally commit it to the repo. That file has a near play-by-play of my thought process, steps taken, and intermediate results. 
 
