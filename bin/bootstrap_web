@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Create db
+#bundle exec rake db:create
+bundle exec rails db:migrate
+# Create test db
+bundle exec rake db:test:prepare
+# Seed dev db
+bundle exec rails db:seed
+
