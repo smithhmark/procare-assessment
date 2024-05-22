@@ -20,21 +20,27 @@ services:
       ALLOW_PLAINTEXT_LISTENER: 'yes'
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
 
+  #rails:
+  #  image: 
   db:
     container_name: postgres
     image: postgres
     environment:
       POSTGRES_PASSWORD: veryverysecret
       POSTGRES_USER: dbuser
-      POSTGRES_DB: procaredev
+      POSTGRES_DB: procare_development
     volumes:
       - pgdata:/var/lib/postgresql/data
+    ports:
+    - 5432:5432
 
   adminer:
+    container_name: adminer
     image: adminer
     restart: always
     ports:
       - 8080:8080
+  
 
 volumes:
   pgdata:

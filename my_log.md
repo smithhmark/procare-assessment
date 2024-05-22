@@ -78,8 +78,8 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 1. add dev log to gitignore
 
 ## plan of action
-- [ ] containerize this dev env
-   - [ ] postgresql container
+- [ ] containerize this dev env **NOTE: the right answer is [here](https://github.com/nickjj/docker-rails-example/tree/main) but I'm gonna cheat**
+   - [x] initial postgresql container
    - [ ] ruby server container
    - [ ] karafka container
    - [ ] .env file
