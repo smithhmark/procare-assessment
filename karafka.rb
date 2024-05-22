@@ -1,5 +1,6 @@
 # frozen_string_literal: true
-
+require '/app/app/consumers/visits_consumer'
+require 'karafka/web'
 # Karafka app object
 class KarafkaApp < Karafka::App
   setup do |config|
