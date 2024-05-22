@@ -69,3 +69,5 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 1. use info from following to clean up node and get latest
   - https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
 1. install yarn: `npm install --global yarn`
+1. ./bin/bootstrap seems to run
+1. `bundle exec rspec spec` still fails
