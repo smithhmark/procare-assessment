@@ -4,10 +4,8 @@ services:
   kafka:
     container_name: kafka
     image: confluentinc/cp-kafka:7.5.1
-
     ports:
       - 9092:9092
-
     environment:
       CLUSTER_ID: kafka-docker-cluster-1
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
@@ -21,3 +19,22 @@ services:
       KAFKA_CONTROLLER_QUORUM_VOTERS: 1@127.0.0.1:9093
       ALLOW_PLAINTEXT_LISTENER: 'yes'
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: veryverysecret
+      POSTGRES_USER: dbuser
+      POSTGRES_DB: procaredev
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  pgdata:
