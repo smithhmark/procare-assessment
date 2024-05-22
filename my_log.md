@@ -75,3 +75,18 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 1. install yarn: `npm install --global yarn`
 1. ./bin/bootstrap seems to run
 1. `bundle exec rspec spec` still fails
+1. add dev log to gitignore
+
+## plan of action
+- [ ] containerize this dev env
+   - [ ] postgresql container
+   - [ ] ruby server container
+   - [ ] karafka container
+   - [ ] .env file
+- [ ] stub out a CONTRIBUTING.md file to walk new devs through setting up the environment
+   - [ ] optionally, build a development container that is setup and ready to go 
+- [ ] add a justfile, or maybe a makefile, to hide the `bundle` garbage
+   - [ ] add installation of `just` to CONTRIBUTING
+   - [ ] `just test`
+   - [ ] `just up` + `just down`
+   - [ ] `just deploy` stub 
