@@ -55,3 +55,9 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
   - reran `bundle install`
 1. progress! 
   - don't have postgres installed on this tiny laptop, fixing now.
+1. installed!
+  - don't have postgres installed on this tiny laptop, fixing now.
+  - sudo apt-get install postgresql
+  - sudo apt-get install libyaml-dev
+  - sudo apt-get install libpq-dev
+  - bundle install
