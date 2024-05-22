@@ -6,8 +6,10 @@
     "@rails/activestorage": "^7.0.4-3",
     "@rails/ujs": "^7.0.4-3",
     "@rails/webpacker": "5.4.4",
+    "n": "^9.2.3",
     "webpack": "^5.79.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.0.1",
+    "yarn": "^1.22.22"
   },
   "version": "0.1.0",
   "devDependencies": {
