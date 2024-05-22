@@ -80,9 +80,9 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 ## plan of action
 - [ ] containerize this dev env **NOTE: the right answer is [here](https://github.com/nickjj/docker-rails-example/tree/main) but I'm gonna cheat**
    - [x] initial postgresql container
-   - [ ] ruby server container
-   - [ ] karafka container
-   - [ ] .env file
+   - [x] ruby server container
+   - [x] karafka container
+   - [x] .env file
 - [ ] stub out a CONTRIBUTING.md file to walk new devs through setting up the environment
    - [ ] optionally, build a development container that is setup and ready to go 
 - [ ] add a justfile, or maybe a makefile, to hide the `bundle` garbage
@@ -93,3 +93,5 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 
 ### containerization log
 - wow. kinda the worst. I'm abandoning doing this gently and attacking this like I mean it.
+- intial containerization complete!
+- merged 
