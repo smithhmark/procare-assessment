@@ -1,4 +1,66 @@
 # Procare Online Engineering Exercise
+## Setting the stage
+This project is a technical assessment. In it, one is presented with a Ruby on Rails project and is asked to find and make one's own contributions.
+
+## My approach
+I am choosing to view this project the way I would any project I was brought into. I want to make sure that this project is positioned for rapid, sustainable progress. That meant it must have the following:
+* reasonable minimal documentation, including
+   * a clear mission statement
+   * some notion of requirements or at least a product description
+     * "functional" requirements (mostly derived from user stories or the mission)
+     * "non-functional"( or sometimes "technical requirements"), examples include
+       * expected peak API usage rates
+       * maximal expected simultaineous active users
+       * maximal acceptable latencies for APIs and web
+    * a destription of the deployment environment
+* be technologically easy to:
+   * run
+   * test
+   * deploy
+   * debug
+   * monitor
+
+Given the nature of this task, much of the documentation, and the engineering efforts that would flow from it, I have chosen to focus on facilitating technical ease of running the project, both as a brand new contributor, and an existing developer/tester.
+
+Given the option, I would prefer to be working with project stakeholders from accross the organization to identify and produce the needed minimal documentation while working on initial cleanup. That would then flow naturally into working on the appropriate follow-on engineering tasks. The following list calls out some types of documentation and the specific engineering tasks that are unlocked/empowered once that documentation is produced.
+
+* product descripton/user stories
+  * QA senarios (integration tests, acceptance tests, etc)
+  * go-no-go criteria for deployments
+  * automated tests (eg selenium, or in locust)
+* non-functional requirments
+  * load testing architecture and test planning
+  * storage capacity planning
+  * budgets (money, time, risk)
+* production environment
+  * delivery and deployment pipelines
+  * monitoring (volumes, costs, app-tracing, malicious behavior scanning)
+  * cost models (so we don't get financially surprized by a change in usage)
+
+Many of the above can be worked in parallel to more tactical changes like what I have done in this repository.
+
+## Summary of changes
+### This document
+...
+
+### Logging
+First, I have kept a log from the very beginning of this task. That is in the file `./task_log_mhs.md`. This is actually a standard practice I use, although I wouldn't normally commit it to the repo. That file has a near play-by-play of my thought process, steps taken, and intermediate results. 
+
+### Containerization
+The project as initially recieved was... challenging to get running. The onboarding documentation was incomplete, lacking things like, which Ruby versions are acceptable for use on this project and which postgres versions are supported/targeted. The `docker_compose.yml` file only had a kafka container in it. This means that developers working on this project could have dependency conflicts between this and any other ruby or postgres project on there machines. It also makes managing the state of the development environment trickier as reseting the schema or doing migrations might demand excalated priviledges. Furthermore, by relying on developer local infrastructure makes drift between production, testing, and each developer's environment all but certain. 
+
+Therefore, as a high priority, I set out to fully dockerize the development environment. The compose file now manages every resource needed to run the project, furthermore it functions as a form of industry standard, living documentation about the architecture of the system. Currently there are two Dockerfiles, one for the rails service and one for the karafka "worker" service. Since there is not enough information about the eventual deployment of this system I feel that two dockerfiles is an ok placeholder until a decision about using a single image with two different startup commands or actually splitting the service into two deployed images is made. (currently, deploying only a single image and invoking it with different commands is likely the correct decision for the short term.)
+
+#### Next Steps
+As of this writing, the containers are DEV-ONLY. There is not yet a docker target or file coping all the production critical code into a container image. Said another way, we are only bind-mounting the source into our containers, addressing that is a necessary step before deployment pipeline work can proceed.
+
+### new bootstrap script
+The starting project had a bootstrapping script provided (`./bin/bootstrap`). However it had hidden prerequesites, (like starting a database). The new script leverages the new containers. It uses `docker compose` to build/retrieve the necessary images, then runs appropriate bootstrapping scripts for each of the two in-project services. This approach leverages the technology, and creates futher living documentation of how this system is built and is intended to work.
+
+#### next steps
+Currently the karafka service container bootstrap fails the first time it is run. This is because the kafka service starts slowly. If the bootstrap script is run multiple times the boot strapping will work. Fixing this can be done in the compse file where waiting for a passing healthcheck on the kafka node should be enough to fix this annoyance.
+
+# Original README below
 
 We strive to be a practical and pragmatic engineering team. That extends to the way that we work with you to understand if this team is a great fit for you. We want you to come away with a great understanding of the kind of things that we actually do day to day and what it is like to work in our teams.
 
