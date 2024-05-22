@@ -49,4 +49,9 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
   - runing `bundle check` results in a huge list of stuff that is missing
 
 1. giving up on linux for now.
-
+1. JK...
+1. realized that I never burned the lock file...
+  - removed Gemfile.lock
+  - reran `bundle install`
+1. progress! 
+  - don't have postgres installed on this tiny laptop, fixing now.
