@@ -6,16 +6,18 @@
 1. create this log
 1. began ruby install
 1. got ruby cmdln stuff working (restarted powershell)
-1. bundle install failed with 
-> Fetching gem metadata from https://rubygems.org/.
-> Resolving dependencies...
-> Installing diffend 0.2.54
-> Diffend configuration is missing project_id key
-> Diffend configuration is missing shareable_id key
-> Diffend configuration is missing shareable_key key
-> Diffend configuration value for project_id is invalid.
-> Diffend configuration value for shareable_id is invalid.
-> Diffend configuration value for shareable_key is invalid.
+1. bundle install failed with
+```shell 
+Fetching gem metadata from https://rubygems.org/.
+Resolving dependencies...
+Installing diffend 0.2.54
+Diffend configuration is missing project_id key
+Diffend configuration is missing shareable_id key
+Diffend configuration is missing shareable_key key
+Diffend configuration value for project_id is invalid.
+Diffend configuration value for shareable_id is invalid.
+Diffend configuration value for shareable_key is invalid.
+```
 1. adding a .gitignore from github
 1. "worked around" `bundle install` problems by disabling diffend. 
 1. under the assumption that since the targeted ruby version is not documented I have too new a ruby version, tried removing ALL version information from teh GEM file
