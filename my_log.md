@@ -56,18 +56,18 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
 1. progress! 
   - don't have postgres installed on this tiny laptop, fixing now.
 1. installed!
-  - don't have postgres installed on this tiny laptophttps://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating, fixing now.
-  - sudo apt-get install postgresql
-  - sudo apt-get install libyaml-dev
-  - sudo apt-get install libpq-dev
-  - bundle install
+ - don't have postgres installed on this tiny laptophttps://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating, fixing now.
+ - sudo apt-get install postgresql
+ - sudo apt-get install libyaml-dev
+ - sudo apt-get install libpq-dev
+ - bundle install
 1. runing `bundle exec rspec spec` fails on 2 tests becuase of uninitialized constants... 
 1. finish setting up docker on this tiny toy laptop
 1. and try runing the bootstrap again.
 1. `npm install yarn` not really working b/c npm needs love
   - following advice from : https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
 1. use info from following to clean up node and get latest
-  - https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
+ - https://askubuntu.com/questions/426750/how-can-i-update-my-nodejs-to-the-latest-version
 1. install yarn: `npm install --global yarn`
 1. ./bin/bootstrap seems to run
 1. `bundle exec rspec spec` still fails
