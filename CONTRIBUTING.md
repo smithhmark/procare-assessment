@@ -20,3 +20,7 @@ Then open (http://localhost:3000/) and (http://localhost:3000/karafka) to explor
 This process has been tested on Ubuntu 22.04.4 LTS. It was tested by removing the images built locally (eg `docker image rm <>`) and removing the database volume (eg `docker volume rm <>`). 
 
 This project includes adminer in the compose file to facilitate database exploration/testing. It is reachable at (http://localhost/8080).
+
+Testing the bootstrap on Windows 11 has shown that there may be some line-ending shennanigans to be dealt with.
+
+Intel-based Macs are too far behind for docker compose features used in this project. 
