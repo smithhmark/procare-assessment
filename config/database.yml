@@ -16,7 +16,7 @@ development:
 test:
   <<: *default
   database: procare_development
-  host: localhost
+
 
 
 production:
