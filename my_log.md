@@ -31,3 +31,22 @@ what happened:
 -----
 mklove/modules/configure.base: line 2126: source: configure.self: file not found'''
 1. next step: reset everything. and try on my linux box
+-----
+1. `snap install ruby --classic` gives me ruby 3.3.1, the windows installation had ruby 3.2.4
+1. bundle install gives wanting about versions but works. 
+1. possible error source: permissions. does bundle try to install for everyone by default. ... try again with `bundle config set --local path 'vendor/bundle'`
+1. yes, I know that did make a ton of sense, if it did make sense I wouldn't have had the bundle command create a .bundle directory
+1. I remain unable to get ruby building native gems. the build is failing to find lib_pthread, but build-essential is installed
+1. rebuilt ruby env
+  - removed all ruby's
+  - used apt-get to rebuild it (wanted all the paths to place nice)
+  - apt-get install build-essential
+  - apt-get install ruby
+  - apt-get install ruby-dev
+  - apt-get install ruby-bundler
+1. set ruby bundle dest to be ./.bundle (`bundle config set --local path "./bundle"`)
+1. `bundle install` tried to install a lot of stuff. but STILL dies in native extentions. 
+  - runing `bundle check` results in a huge list of stuff that is missing
+
+1. giving up on linux for now.
+
