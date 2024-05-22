@@ -3,6 +3,7 @@
 1. get docker working locally
    * use `docker run hello-world` to verify
 1. checkout this repo
+1. create an environment, use `cp .env.example .env` to test started
 1. run the bootstrap script: `./bin/bootstrap`.  This will:
    * invoke docker compose build
    * do the bootstraping for rails/postgres
