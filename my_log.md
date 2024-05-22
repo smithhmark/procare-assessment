@@ -90,3 +90,6 @@ mklove/modules/configure.base: line 2126: source: configure.self: file not found
    - [ ] `just test`
    - [ ] `just up` + `just down`
    - [ ] `just deploy` stub 
+
+### containerization log
+- wow. kinda the worst. I'm abandoning doing this gently and attacking this like I mean it.
